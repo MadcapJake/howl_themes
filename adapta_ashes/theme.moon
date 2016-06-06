@@ -11,7 +11,7 @@ red          = '#C79595'
 darkred      = '#8b0000'
 orange       = '#C7AE95'
 yellow       = '#C7C795'
-yellow_dark  = '#75715e'
+-- yellow_dark  = '#75715e'
 green        = '#AEC795'
 green_dark   = '#95C7AE'
 aqua         = '#99ffff'
@@ -24,7 +24,7 @@ grey_darker  = '#384951'
 grey_darkest = '#263138'
 grey_light   = '#a6a6a6'
 embedded_bg  = '#484848'
-border_color = '#333333'
+-- border_color = '#333333'
 
 -- General styling for context boxes (editor, command_line)
 content_box = {
@@ -94,7 +94,7 @@ return {
       color: background
 
     status:
-      font: bold: true, italic: true
+      font: family: 'Cantarell Regular', bold: true, italic: true
       color: grey
 
       info: color: foreground
@@ -116,7 +116,7 @@ return {
 
       title:
         color: foreground
-        font: bold: true
+        font: family: 'Cantarell Regular', bold: true
 
       vi:
         font: bold: true
