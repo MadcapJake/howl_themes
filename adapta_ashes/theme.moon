@@ -1,74 +1,95 @@
 {:delegate_to} = howl.util.table
 
-background   = '#ffffff'
+background   = '#455A64'
 current      = '#75715e'
-selection    = '#698651'
-foreground   = '#0E1F23'
-comment      = '#4E4E4E'
-red          = '#F87C7A'
-darkred      = '#D34846'
-orange       = '#FA8A51'
--- redish       = '#4A3D28' -- 697B43
-redish       = '#6D7E3B'
-redish_dark  = '#312A1E'
-dark_purple  = '#617247'
-aqua         = '#88A9A9'
-blue         = '#3C452E'
-purple       = '#818066'
-magenta      =  blue
-grey         = '#EFEFEF'
-grey_darker  = '#EFEFEF'
-fafafa       = '#FAFAFA'
-grey_light   = '#828282'
-embedded_bg  = '#9C9C9C'
-border_color = '#EFEFEF'
+selection    = '#00BCD4'
+foreground   = '#ECEFF1'
+aquamarine   = '#23CAA4'
+ming         = '#386969'
+comment      = '#747C84'
+red          = '#C79595'
+darkred      = '#8b0000'
+orange       = '#C7AE95'
+yellow       = '#C7C795'
+yellow_dark  = '#75715e'
+green        = '#AEC795'
+green_dark   = '#95C7AE'
+aqua         = '#99ffff'
+blue         = '#95AEC7'
+purple       = '#AE95C7'
+magenta      = '#C795AE'
+grey         = '#595959'
+grey_dark    = '#3E515A'
+grey_darker  = '#384951'
+grey_darkest = '#263138'
+grey_light   = '#a6a6a6'
+embedded_bg  = '#484848'
+border_color = '#333333'
 
 -- General styling for context boxes (editor, command_line)
 content_box = {
+
   background:
     color: background
-    image:
-      path: theme_file('noisy_grid.png')
 
-  border:
-    width: 1
-    color: border_color
+  -- border:
+  --   width: 0
+    -- color: magenta
 
-  border_right:
-    width: 3
-    color: border_color
+  -- border_right:
+  --   width: 3
+  --   color: border_color
 
-  border_bottom:
-    width: 3
-    color: border_color
+  -- border_bottom:
+  --   width: 3
+  --   color: border_color
 
   header:
-    background:
-      color: fafafa
-      alpha: 0.5
+    color: white
 
+    background:
+      gradient:
+        type: 'linear'
+        direction: 'vertical'
+        stops: {
+          '#263138', grey_dark, grey_dark, grey_dark,
+          grey_dark, grey_dark, grey_dark, grey_dark,
+          grey_dark, grey_dark, grey_dark
+        }
+      -- color: grey_dark
+
+    -- border_top:
+    --   width: 2
+    --   color: '#263138'
 
     border_bottom:
+      width: 1
       color: grey_darker
+
+
+    padding_left: 15
 
     color: white
     font: bold: true
-    padding: 1
+    padding: 10
 
   footer:
     background:
-      color: fafafa
+      color: grey_dark
 
-    border_top:
-      color: grey_darker
+    -- border_top:
+    --   color: grey_darker
 
     color: grey
     font: bold: true
-    padding: 1
+    padding: 3
 }
 
 return {
   window:
+    outer_padding: 0
+    inner_padding: 0
+
     background:
       color: background
 
@@ -76,7 +97,7 @@ return {
       font: bold: true, italic: true
       color: grey
 
-      info: color: grey_light
+      info: color: foreground
       warning: color: orange
       'error': color: red
 
@@ -84,7 +105,7 @@ return {
 
   popup:
     background:
-      color: fafafa
+      color: grey_darkest
     border:
       color: grey
 
@@ -94,6 +115,7 @@ return {
         color: grey_light
 
       title:
+        color: foreground
         font: bold: true
 
       vi:
@@ -106,11 +128,15 @@ return {
     current_line:
       background: current
 
+    -- line numbers
     gutter:
-      color: comment
+      color: foreground
       background:
-        color: fafafa
-        alpha: 1 -- 0.6
+        color: grey_darkest
+        alpha: 0.6
+
+    border:
+      width: 0
   }
 
   flairs:
@@ -137,26 +163,26 @@ return {
 
     edge_line:
       type: flair.PIPE,
-      foreground: grey_darker, -- blue ?
+      foreground: blue,
       foreground_alpha: 0.3,
       line_width: 0.5
 
     search:
-      type: highlight.ROUNDED_RECTANGLE
+      type: highlight.RECTANGLE
       foreground: black
       foreground_alpha: 1
-      background: redish
-      text_color: fafafa
+      background: aquamarine
+      text_color: grey_darkest
       height: 'text'
 
     search_secondary:
-      type: flair.ROUNDED_RECTANGLE
-      background: redish_dark
-      text_color: fafafa
+      type: flair.RECTANGLE
+      background: ming
+      text_color: grey_darkest
       height: 'text'
 
     replace_strikeout:
-      type: flair.ROUNDED_RECTANGLE
+      type: flair.RECTANGLE
       foreground: black
       background: red
       text_color: black
@@ -182,8 +208,8 @@ return {
 
     list_highlight:
       type: highlight.UNDERLINE
-      foreground: foreground -- white
-      text_color: foreground -- white
+      foreground: white
+      text_color: white
       line_width: 2
 
     cursor:
@@ -193,16 +219,16 @@ return {
       height: 'text'
 
     block_cursor:
-      type: flair.ROUNDED_RECTANGLE,
+      type: flair.RECTANGLE,
       background: foreground
       text_color: background
       height: 'text',
       min_width: 'letter'
 
     selection:
-      type: highlight.ROUNDED_RECTANGLE
+      type: highlight.RECTANGLE
       background: selection
-      background_alpha: 0.3
+      background_alpha: 0.4
       min_width: 'letter'
 
   styles:
@@ -210,14 +236,14 @@ return {
       color: foreground
 
     red: color: red
-    dark_purple: color: dark_purple
-    redish: color: redish
+    green: color: green
+    yellow: color: yellow
     blue: color: blue
     magenta: color: purple
     cyan: color: aqua
 
     popup:
-      background: fafafa
+      background: grey_darkest
       color: foreground
 
     comment:
@@ -225,7 +251,7 @@ return {
       color: comment
 
     variable:
-      color: redish
+      color: yellow
 
     label:
       color: orange
@@ -233,27 +259,27 @@ return {
 
     key:
       color: blue
-      font: bold: true -- true
+      font: bold: false -- true
 
     fdecl:
-      color: dark_purple
+      color: green
       font: bold: true
 
     keyword:
       color: magenta
-      font: bold: true -- true
+      font: bold: false -- true
 
     class:
       color: blue
       font: bold: true
 
     type_def:
-      color: dark_purple
+      color: green
       font:
         bold: true
 
     definition:
-      color: redish
+      color: yellow
 
     function:
       color: blue
@@ -263,9 +289,9 @@ return {
       color: blue
       font: italic: true
 
-    char: color: dark_purple
+    char: color: green
     number: color: purple
-    operator: color: magenta
+    operator: color: green_dark
     preproc: color: aqua
     special: color: purple
     tag: color: purple
@@ -273,13 +299,13 @@ return {
     info: color: blue
 
     constant:
-      color: redish
+      color: yellow
 
     string:
-      color: redish
+      color: yellow
 
     regex:
-      color: dark_purple
+      color: green
       background: embedded_bg
 
     embedded:
@@ -323,7 +349,7 @@ return {
       background: embedded_bg
       underline: true
 
-    addition: color: dark_purple
+    addition: color: green
     deletion: color: red
-    change: color: redish
+    change: color: yellow
   }

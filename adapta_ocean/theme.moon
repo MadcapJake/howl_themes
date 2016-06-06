@@ -1,69 +1,94 @@
 {:delegate_to} = howl.util.table
 
-background   = '#0E1F23'
+background   = '#2B303B'
 current      = '#75715e'
-selection    = '#759557'
-foreground   = '#ffffff'
-comment      = '#75715e'
-red          = '#ff9da4'
-darkred      = '#8b0000'
-orange       = '#ffc58f'
-yellow       = '#e6db74'
+selection    = '#4F5B66'
+foreground   = '#EFF1F5'
+aquamarine   = '#23CAA4'
+ming         = '#386969'
+comment      = '#747C84'
+red          = '#BF616A'
+darkred      = '#AB7967'
+orange       = '#D08770'
+yellow       = '#EBCB8B'
 yellow_dark  = '#75715e'
-green        = '#a6e22a'
-aqua         = '#99ffff'
-blue         = '#89bdff'
-purple       = '#ae81ff'
-magenta      = blue -- F92651
+green        = '#A3BE8C'
+aqua         = '#96B5B4'
+blue         = '#8FA1B3'
+purple       = '#AE95C7'
+magenta      = '#B48EAD'
 grey         = '#595959'
-grey_darker  = '#383830'
-grey_darkest = '#243336'
+grey_dark    = '#3E515A'
+grey_darker  = '#384951'
+grey_darkest = '#263138'
 grey_light   = '#a6a6a6'
 embedded_bg  = '#484848'
 border_color = '#333333'
 
 -- General styling for context boxes (editor, command_line)
 content_box = {
+
   background:
     color: background
 
-  border:
-    width: 1
-    color: border_color
+  -- border:
+  --   width: 0
+    -- color: magenta
 
-  border_right:
-    width: 3
-    color: border_color
+  -- border_right:
+  --   width: 3
+  --   color: border_color
 
-  border_bottom:
-    width: 3
-    color: border_color
+  -- border_bottom:
+  --   width: 3
+  --   color: border_color
 
   header:
+    color: white
+
     background:
-      color: grey_darkest
+      gradient:
+        type: 'linear'
+        direction: 'vertical'
+        stops: {
+          '#263138', grey_dark, grey_dark, grey_dark,
+          grey_dark, grey_dark, grey_dark, grey_dark,
+          grey_dark, grey_dark, grey_dark
+        }
+      -- color: grey_dark
+
+    -- border_top:
+    --   width: 2
+    --   color: '#263138'
 
     border_bottom:
+      width: 1
       color: grey_darker
+
+
+    padding_left: 15
 
     color: white
     font: bold: true
-    padding: 1
+    padding: 10
 
   footer:
     background:
-      color: grey_darkest
+      color: grey_dark
 
-    border_top:
-      color: grey_darker
+    -- border_top:
+    --   color: grey_darker
 
     color: grey
     font: bold: true
-    padding: 1
+    padding: 3
 }
 
 return {
   window:
+    outer_padding: 0
+    inner_padding: 0
+
     background:
       color: background
 
@@ -71,7 +96,7 @@ return {
       font: bold: true, italic: true
       color: grey
 
-      info: color: grey_light
+      info: color: foreground
       warning: color: orange
       'error': color: red
 
@@ -89,6 +114,7 @@ return {
         color: grey_light
 
       title:
+        color: foreground
         font: bold: true
 
       vi:
@@ -101,11 +127,15 @@ return {
     current_line:
       background: current
 
+    -- line numbers
     gutter:
-      color: comment
+      color: foreground
       background:
         color: grey_darkest
         alpha: 0.6
+
+    border:
+      width: 0
   }
 
   flairs:
@@ -137,21 +167,21 @@ return {
       line_width: 0.5
 
     search:
-      type: highlight.ROUNDED_RECTANGLE
+      type: highlight.RECTANGLE
       foreground: black
       foreground_alpha: 1
-      background: yellow
+      background: aquamarine
       text_color: grey_darkest
       height: 'text'
 
     search_secondary:
-      type: flair.ROUNDED_RECTANGLE
-      background: yellow_dark
+      type: flair.RECTANGLE
+      background: ming
       text_color: grey_darkest
       height: 'text'
 
     replace_strikeout:
-      type: flair.ROUNDED_RECTANGLE
+      type: flair.RECTANGLE
       foreground: black
       background: red
       text_color: black
@@ -188,14 +218,14 @@ return {
       height: 'text'
 
     block_cursor:
-      type: flair.ROUNDED_RECTANGLE,
+      type: flair.RECTANGLE,
       background: foreground
       text_color: background
       height: 'text',
       min_width: 'letter'
 
     selection:
-      type: highlight.ROUNDED_RECTANGLE
+      type: highlight.RECTANGLE
       background: selection
       background_alpha: 0.4
       min_width: 'letter'
@@ -223,8 +253,8 @@ return {
       color: yellow
 
     label:
-      color: orange
-      font: italic: true
+      color: yellow
+      font: bold: true
 
     key:
       color: blue
@@ -255,12 +285,12 @@ return {
       font: bold: true
 
     type:
-      color: blue
+      color: yellow
       font: italic: true
 
     char: color: green
-    number: color: purple
-    operator: color: magenta
+    number: color: orange
+    operator: color: aqua
     preproc: color: aqua
     special: color: purple
     tag: color: purple
@@ -271,7 +301,7 @@ return {
       color: yellow
 
     string:
-      color: yellow
+      color: green
 
     regex:
       color: green

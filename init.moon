@@ -2,9 +2,9 @@
 theme = howl.ui.theme
 
 themes = {
-  'Berrykai': bundle_file('berrykai/berrykai.moon'),
-  'Play': bundle_file('play/play.moon'),
-  'Woodland': bundle_file('woodland/woodland.moon'),
+  'Adapta Ashes': bundle_file('adapta_ashes/theme.moon'),
+  'Adapta Ocean': bundle_file('adapta_ocean/theme.moon'),
+  'Adapta Railscast': bundle_file('adapta_railscast/theme.moon'),
 }
 
 for name,file in pairs themes
@@ -16,8 +16,8 @@ unload = ->
 
 {
   info: {
-    author: 'rokf@github',
-    description: 'Some additional themes for Howl',
+    author: 'MadcapJake@github',
+    description: 'Adapta themes for Howl',
     license: 'MIT',
   },
   :unload
