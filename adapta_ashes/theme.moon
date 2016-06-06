@@ -262,7 +262,7 @@ return {
       font: bold: false -- true
 
     fdecl:
-      color: green
+      color: red
       font: bold: true
 
     keyword:

@@ -69,7 +69,7 @@ content_box = {
     padding_left: 15
 
     color: white
-    font: bold: true
+    font: family: 'Cantarell Regular', bold: true
     padding: 10
 
   footer:
@@ -80,7 +80,7 @@ content_box = {
     --   color: grey_darker
 
     color: grey
-    font: bold: true
+    font: family: 'Cantarell Regular', bold: true
     padding: 3
 }
 
@@ -261,7 +261,7 @@ return {
       font: bold: false -- true
 
     fdecl:
-      color: green
+      color: red
       font: bold: true
 
     keyword:
