@@ -3,8 +3,8 @@ theme = howl.ui.theme
 
 themes = {
   'Adapta Ashes': bundle_file('adapta_ashes/theme.moon'),
-  'Adapta Ocean': bundle_file('adapta_ocean/theme.moon'),
-  'Adapta Railscast': bundle_file('adapta_railscast/theme.moon'),
+  'Adapta Ocean': bundle_file('adapta_ocean/theme.moon')
+  -- 'Adapta Railscast': bundle_file('adapta_railscast/theme.moon'),
 }
 
 for name,file in pairs themes
