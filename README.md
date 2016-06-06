@@ -18,3 +18,21 @@ git clone https://github.com/madcapjake/madcap_themes
 
 - Adapta Ashes - [base16 Ashes](https://chriskempson.github.io/base16/#ashes) theme mixed with Adapta UI
 - Adapta Ocean - [base16 Ocean](https://chriskempson.github.io/base16/#ocean) theme mixed with Adapta UI
+
+## Examples
+
+### Adapta Ashes
+
+#### MoonScript
+![Adapta Ashes - MoonScript](https://raw.githubusercontent.com/MadcapJake/madcap_themes/master/examples/adapta_ashes_moon.png)
+
+#### Python
+![Adapta Ashes - Python](https://raw.githubusercontent.com/MadcapJake/madcap_themes/master/examples/adapta_ashes_python.png)
+
+### Adapta Ocean
+
+#### MoonScript
+![Adapta Ocean - MoonScript](https://raw.githubusercontent.com/MadcapJake/madcap_themes/master/examples/adapta_ocean_moon.png)
+
+#### Python
+![Adapta Ocean - Python](https://raw.githubusercontent.com/MadcapJake/madcap_themes/master/examples/adapta_ocean_python.png)
